@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDAAFD7025C046B100275A4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD6F25C046B100275A4B /* AppDelegate.swift */; };
+		EDAAFD7225C046B100275A4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD7125C046B100275A4B /* SceneDelegate.swift */; };
+		EDAAFD7425C046B100275A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD7325C046B100275A4B /* ContentView.swift */; };
+		EDAAFD7625C046B400275A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAAFD7525C046B400275A4B /* Assets.xcassets */; };
+		EDAAFD7925C046B400275A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAAFD7825C046B400275A4B /* Preview Assets.xcassets */; };
+		EDAAFD7C25C046B400275A4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDAAFD7A25C046B400275A4B /* LaunchScreen.storyboard */; };
+		EDAAFD8725C046B500275A4B /* kolappen_retailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD8625C046B500275A4B /* kolappen_retailTests.swift */; };
+		EDAAFD9225C046B500275A4B /* kolappen_retailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD9125C046B500275A4B /* kolappen_retailUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDAAFD8325C046B500275A4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDAAFD6425C046B100275A4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDAAFD6B25C046B100275A4B;
+			remoteInfo = "kolappen-retail";
+		};
+		EDAAFD8E25C046B500275A4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDAAFD6425C046B100275A4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDAAFD6B25C046B100275A4B;
+			remoteInfo = "kolappen-retail";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDAAFD6C25C046B100275A4B /* kolappen-retail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kolappen-retail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDAAFD6F25C046B100275A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDAAFD7125C046B100275A4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDAAFD7325C046B100275A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EDAAFD7525C046B400275A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDAAFD7825C046B400275A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EDAAFD7B25C046B400275A4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDAAFD7D25C046B400275A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDAAFD8225C046B500275A4B /* kolappen-retailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kolappen-retailTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDAAFD8625C046B500275A4B /* kolappen_retailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kolappen_retailTests.swift; sourceTree = "<group>"; };
+		EDAAFD8825C046B500275A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDAAFD8D25C046B500275A4B /* kolappen-retailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kolappen-retailUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDAAFD9125C046B500275A4B /* kolappen_retailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kolappen_retailUITests.swift; sourceTree = "<group>"; };
+		EDAAFD9325C046B500275A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDAAFD6925C046B100275A4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDAAFD7F25C046B500275A4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDAAFD8A25C046B500275A4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDAAFD6325C046B100275A4B = {
+			isa = PBXGroup;
+			children = (
+				EDAAFD6E25C046B100275A4B /* kolappen-retail */,
+				EDAAFD8525C046B500275A4B /* kolappen-retailTests */,
+				EDAAFD9025C046B500275A4B /* kolappen-retailUITests */,
+				EDAAFD6D25C046B100275A4B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDAAFD6D25C046B100275A4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDAAFD6C25C046B100275A4B /* kolappen-retail.app */,
+				EDAAFD8225C046B500275A4B /* kolappen-retailTests.xctest */,
+				EDAAFD8D25C046B500275A4B /* kolappen-retailUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDAAFD6E25C046B100275A4B /* kolappen-retail */ = {
+			isa = PBXGroup;
+			children = (
+				EDAAFD6F25C046B100275A4B /* AppDelegate.swift */,
+				EDAAFD7125C046B100275A4B /* SceneDelegate.swift */,
+				EDAAFD7325C046B100275A4B /* ContentView.swift */,
+				EDAAFD7525C046B400275A4B /* Assets.xcassets */,
+				EDAAFD7A25C046B400275A4B /* LaunchScreen.storyboard */,
+				EDAAFD7D25C046B400275A4B /* Info.plist */,
+				EDAAFD7725C046B400275A4B /* Preview Content */,
+			);
+			path = "kolappen-retail";
+			sourceTree = "<group>";
+		};
+		EDAAFD7725C046B400275A4B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EDAAFD7825C046B400275A4B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EDAAFD8525C046B500275A4B /* kolappen-retailTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDAAFD8625C046B500275A4B /* kolappen_retailTests.swift */,
+				EDAAFD8825C046B500275A4B /* Info.plist */,
+			);
+			path = "kolappen-retailTests";
+			sourceTree = "<group>";
+		};
+		EDAAFD9025C046B500275A4B /* kolappen-retailUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EDAAFD9125C046B500275A4B /* kolappen_retailUITests.swift */,
+				EDAAFD9325C046B500275A4B /* Info.plist */,
+			);
+			path = "kolappen-retailUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDAAFD6B25C046B100275A4B /* kolappen-retail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDAAFD9625C046B500275A4B /* Build configuration list for PBXNativeTarget "kolappen-retail" */;
+			buildPhases = (
+				EDAAFD6825C046B100275A4B /* Sources */,
+				EDAAFD6925C046B100275A4B /* Frameworks */,
+				EDAAFD6A25C046B100275A4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kolappen-retail";
+			productName = "kolappen-retail";
+			productReference = EDAAFD6C25C046B100275A4B /* kolappen-retail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDAAFD8125C046B500275A4B /* kolappen-retailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDAAFD9925C046B500275A4B /* Build configuration list for PBXNativeTarget "kolappen-retailTests" */;
+			buildPhases = (
+				EDAAFD7E25C046B500275A4B /* Sources */,
+				EDAAFD7F25C046B500275A4B /* Frameworks */,
+				EDAAFD8025C046B500275A4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDAAFD8425C046B500275A4B /* PBXTargetDependency */,
+			);
+			name = "kolappen-retailTests";
+			productName = "kolappen-retailTests";
+			productReference = EDAAFD8225C046B500275A4B /* kolappen-retailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EDAAFD8C25C046B500275A4B /* kolappen-retailUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDAAFD9C25C046B500275A4B /* Build configuration list for PBXNativeTarget "kolappen-retailUITests" */;
+			buildPhases = (
+				EDAAFD8925C046B500275A4B /* Sources */,
+				EDAAFD8A25C046B500275A4B /* Frameworks */,
+				EDAAFD8B25C046B500275A4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDAAFD8F25C046B500275A4B /* PBXTargetDependency */,
+			);
+			name = "kolappen-retailUITests";
+			productName = "kolappen-retailUITests";
+			productReference = EDAAFD8D25C046B500275A4B /* kolappen-retailUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDAAFD6425C046B100275A4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					EDAAFD6B25C046B100275A4B = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					EDAAFD8125C046B500275A4B = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = EDAAFD6B25C046B100275A4B;
+					};
+					EDAAFD8C25C046B500275A4B = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = EDAAFD6B25C046B100275A4B;
+					};
+				};
+			};
+			buildConfigurationList = EDAAFD6725C046B100275A4B /* Build configuration list for PBXProject "kolappen-retail" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDAAFD6325C046B100275A4B;
+			productRefGroup = EDAAFD6D25C046B100275A4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDAAFD6B25C046B100275A4B /* kolappen-retail */,
+				EDAAFD8125C046B500275A4B /* kolappen-retailTests */,
+				EDAAFD8C25C046B500275A4B /* kolappen-retailUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDAAFD6A25C046B100275A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDAAFD7C25C046B400275A4B /* LaunchScreen.storyboard in Resources */,
+				EDAAFD7925C046B400275A4B /* Preview Assets.xcassets in Resources */,
+				EDAAFD7625C046B400275A4B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDAAFD8025C046B500275A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDAAFD8B25C046B500275A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDAAFD6825C046B100275A4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDAAFD7025C046B100275A4B /* AppDelegate.swift in Sources */,
+				EDAAFD7225C046B100275A4B /* SceneDelegate.swift in Sources */,
+				EDAAFD7425C046B100275A4B /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDAAFD7E25C046B500275A4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDAAFD8725C046B500275A4B /* kolappen_retailTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDAAFD8925C046B500275A4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDAAFD9225C046B500275A4B /* kolappen_retailUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDAAFD8425C046B500275A4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDAAFD6B25C046B100275A4B /* kolappen-retail */;
+			targetProxy = EDAAFD8325C046B500275A4B /* PBXContainerItemProxy */;
+		};
+		EDAAFD8F25C046B500275A4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDAAFD6B25C046B100275A4B /* kolappen-retail */;
+			targetProxy = EDAAFD8E25C046B500275A4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDAAFD7A25C046B400275A4B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDAAFD7B25C046B400275A4B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDAAFD9425C046B500275A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDAAFD9525C046B500275A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDAAFD9725C046B500275A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"kolappen-retail/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "kolappen-retail/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.kolappen-retail";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDAAFD9825C046B500275A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"kolappen-retail/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "kolappen-retail/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.kolappen-retail";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDAAFD9A25C046B500275A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "kolappen-retailTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.kolappen-retailTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kolappen-retail.app/kolappen-retail";
+			};
+			name = Debug;
+		};
+		EDAAFD9B25C046B500275A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "kolappen-retailTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.kolappen-retailTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kolappen-retail.app/kolappen-retail";
+			};
+			name = Release;
+		};
+		EDAAFD9D25C046B500275A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "kolappen-retailUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.kolappen-retailUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "kolappen-retail";
+			};
+			name = Debug;
+		};
+		EDAAFD9E25C046B500275A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "kolappen-retailUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.kolappen-retailUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "kolappen-retail";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDAAFD6725C046B100275A4B /* Build configuration list for PBXProject "kolappen-retail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDAAFD9425C046B500275A4B /* Debug */,
+				EDAAFD9525C046B500275A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDAAFD9625C046B500275A4B /* Build configuration list for PBXNativeTarget "kolappen-retail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDAAFD9725C046B500275A4B /* Debug */,
+				EDAAFD9825C046B500275A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDAAFD9925C046B500275A4B /* Build configuration list for PBXNativeTarget "kolappen-retailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDAAFD9A25C046B500275A4B /* Debug */,
+				EDAAFD9B25C046B500275A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDAAFD9C25C046B500275A4B /* Build configuration list for PBXNativeTarget "kolappen-retailUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDAAFD9D25C046B500275A4B /* Debug */,
+				EDAAFD9E25C046B500275A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDAAFD6425C046B100275A4B /* Project object */;
+}
