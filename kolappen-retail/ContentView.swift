@@ -9,13 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            Color("Background")
+            VStack {
+                Text("Hello, Nynäs")
+                    .foregroundColor(Color("Text"))
+                Text("Hello, Mainland")
+                    .foregroundColor(Color("Text"))
+            }
+            
+        }
+        .ignoresSafeArea()
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.colorScheme, .dark)
     }
 }
