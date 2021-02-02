@@ -1,0 +1,6 @@
+framework module Pods_kolappen_retail_kolappen_retailUITests {
+  umbrella header "Pods-kolappen-retail-kolappen-retailUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+    
+    var db = Firestore.firestore()
+    
     var body: some View {
         ZStack {
             Color("Background")
@@ -20,14 +24,16 @@ struct ContentView: View {
             
         }
         .ignoresSafeArea()
-        
+        .onAppear() {
+            db.collection("test").addDocument(data: ["name" : "Robert"])
+        }
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environment(\.colorScheme, .dark)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//            .environment(\.colorScheme, .dark)
+//    }
+//}
