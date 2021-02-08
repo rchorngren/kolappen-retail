@@ -15,6 +15,7 @@ struct ContentView: View {
     
     @State var usernameInput : String = ""
     @State var passwordInput : String = ""
+    @State var loginSuccess : Bool = false
 
     var body: some View {
         NavigationView {
@@ -35,13 +36,17 @@ struct ContentView: View {
                     .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer()
                     
-                    Button(action: {
-                            buttonPressed()
-                    }) {
-                        Text("Logga in")
-                            .font(.title2)
-                            .foregroundColor(Color("Text"))
-                            .padding(.horizontal)
+                    
+                    NavigationLink(
+                        destination: QueueView(), isActive: $loginSuccess) {
+                        Button(action: {
+                                loginUser()
+                        }) {
+                            Text("Logga in")
+                                .font(.title2)
+                                .foregroundColor(Color("Text"))
+                                .padding(.horizontal)
+                        }
                     }
                     
                     Spacer()
@@ -67,6 +72,17 @@ struct ContentView: View {
     private func buttonPressed() {
         print("username: \(usernameInput)")
         print("password: \(passwordInput)")
+    }
+    
+    private func loginUser() {
+        Auth.auth().signIn(withEmail: usernameInput, password: passwordInput) { authResult, error in
+            if (error != nil) {
+                print("there was a problem signing in: \(error)")
+            } else {
+                print("login successful!")
+                loginSuccess = true
+            }
+        }
     }
 }
 
