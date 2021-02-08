@@ -14,6 +14,7 @@ struct QueueView: View {
     
     @State var uid : String = ""
     @State var shopName : String = ""
+
     @State var currentQueueNumber : Int = 0
     @State var highestQueueNumber : Int = 0
     @State var queueLength : Int = 0
