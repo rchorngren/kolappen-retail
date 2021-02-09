@@ -4,26 +4,21 @@
 //
 //  Created by Robert Horngren on 2021-02-08.
 //
-
 import SwiftUI
 import Firebase
 
 struct QueueView: View {
-
+    
     var db = Firestore.firestore()
-
+    
     @State var uid : String = ""
     @State var shopName : String = ""
     @State var currentQueueNumber : Int = 0
     @State var highestQueueNumber : Int = 0
     @State var queueLength : Int = 0
     @State var documentId : String = ""
-
+    
     var body: some View {
-        ZStack {
-            Text("Hello from queueview")
-                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-
 
             ZStack {
                 Color("Background")
@@ -49,7 +44,7 @@ struct QueueView: View {
                         .padding(.horizontal)
                     })
                     .padding(.bottom, 50)
-
+                    
                     HStack {
                         NavigationLink(
                             destination: SupportView()) {
@@ -67,11 +62,9 @@ struct QueueView: View {
                             }
                     }
                     .padding(.bottom, 50)
-
+                    
                 }
             }
-        .onAppear() {
-            verifyUser()
             .navigationBarTitle("\(shopName)")
 //            .navigationBarItems(trailing: NavigationLink(
 //                                        destination: SettingsView()) {
@@ -83,34 +76,33 @@ struct QueueView: View {
             .onAppear() {
                 verifyUser()
             }
-
-
+        
+        
     }
-
+    
     private func nextCustomer() {
         let newQueueNumber = currentQueueNumber + 1
         do {
             db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber])
         }
     }
-
+    
     private func verifyUser() {
         if let user = Auth.auth().currentUser {
-            let uid = user.uid
             uid = user.uid
             let email = user.email
             print("loggedin user: \(uid) \(email!)")
-
+            
             db.collection("users").whereField("uid", isEqualTo: uid).addSnapshotListener() { (snapshot, error) in
                 if let error = error {
                     print("there was an error regarding snapshot: \(error)")
                 } else {
                     for document in snapshot!.documents {
-
+                        
                         let result = Result {
                             try document.data(as: Shop.self)
                         }
-
+                        
                         switch result {
                             case .success(let shop):
                                 if let shop = shop {
@@ -125,22 +117,16 @@ struct QueueView: View {
                                 case.failure(let error):
                                     print("Error decoding item: \(error)")
                         }
-
+                        
                     }
                 }
             }
         }
     }
-
+    
 }
 
 
-struct QueueView_Previews: PreviewProvider {
-    static var previews: some View {
-        QueueView()
-            .environment(\.colorScheme, .dark)
-    }
-}
 //struct QueueView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        QueueView()
