@@ -57,11 +57,8 @@ struct QueueView: View {
     
     private func nextCustomer() {
         let newQueueNumber = currentQueueNumber + 1
-        
         do {
-            try db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber])
-        } catch {
-            print("There was an error while calling the next customer (error saving to DB)")
+            db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber])
         }
     }
     
