@@ -57,9 +57,11 @@ struct QueueView: View {
     
     private func nextCustomer() {
         let newQueueNumber = currentQueueNumber + 1
+        
         do {
-            _ = try db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber]
-            )
+            try db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber])
+        } catch {
+            print("There was an error while calling the next customer (error saving to DB)")
         }
     }
     
@@ -69,43 +71,34 @@ struct QueueView: View {
             let email = user.email
             print("loggedin user: \(uid) \(email!)")
             
-            let docRef = db.collection("users").whereField("uid", isEqualTo: uid)
-            docRef.getDocuments { (QuerySnapshot, error) in
+            db.collection("users").whereField("uid", isEqualTo: uid).addSnapshotListener() { (snapshot, error) in
                 if let error = error {
-                    print(error)
-                    return
-                } else if QuerySnapshot!.documents.count != 1 {
-                    print("More than 1 document or none")
+                    print("there was an error regarding snapshot: \(error)")
                 } else {
-                    let document = QuerySnapshot!.documents.first
-                    let dataDescription = document?.data()
-                    guard let shopNameDB = dataDescription?["shopName"]
-                    else {
-                        return
+                    for document in snapshot!.documents {
+                        
+                        let result = Result {
+                            try document.data(as: Shop.self)
+                        }
+                        
+                        switch result {
+                            case .success(let shop):
+                                if let shop = shop {
+                                    shopName = shop.shopName
+                                    currentQueueNumber = shop.currentQueueNumber
+                                    highestQueueNumber = shop.highestQueueNumber
+                                    queueLength = highestQueueNumber - currentQueueNumber
+                                    documentId = document.documentID
+                                } else {
+                                    print("Document does not exist")
+                                }
+                                case.failure(let error):
+                                    print("Error decoding item: \(error)")
+                        }
+                        
                     }
-                    guard let currentQueueDB = dataDescription?["currentQueueNumber"]
-                    else {
-                        return
-                    }
-                    guard let highestQueueDB = dataDescription?["highestQueueNumber"]
-                    else {
-                        return
-                    }
-                    shopName = "\(shopNameDB)"
-                    currentQueueNumber = currentQueueDB as! Int
-                    highestQueueNumber = highestQueueDB as! Int
-                    queueLength = highestQueueNumber - currentQueueNumber
-                    documentId = document!.documentID
-                    
                 }
             }
-//            docRef.getDocument { (document, error) in
-//                if let document = document, document.exists {
-//                    print("Document data: \(document)")
-//                } else {
-//                    print("Document does not exist")
-//                }
-//            }
         }
     }
     
