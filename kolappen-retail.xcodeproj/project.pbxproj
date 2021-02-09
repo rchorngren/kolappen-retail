@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74103A0125D2C7A6007BD9D4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74103A0025D2C7A6007BD9D4 /* Contact.swift */; };
 		7C795B153F7575EE26C8F8FF /* Pods_kolappen_retailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911F6E9A53E5E9B35331CB11 /* Pods_kolappen_retailTests.framework */; };
 		9E29F6B888186322E83FAD1F /* Pods_kolappen_retail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AE83D1F41377A33071794A /* Pods_kolappen_retail.framework */; };
 		ED592F8425CC2724005E2F86 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED592F8225CC2724005E2F86 /* SupportView.swift */; };
@@ -44,6 +45,7 @@
 		0A505910E90B70CD9F770DB8 /* Pods_kolappen_retail_kolappen_retailUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kolappen_retail_kolappen_retailUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E07E6DFF3EE40926DC8F7C /* Pods-kolappen-retail-kolappen-retailUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kolappen-retail-kolappen-retailUITests.release.xcconfig"; path = "Target Support Files/Pods-kolappen-retail-kolappen-retailUITests/Pods-kolappen-retail-kolappen-retailUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6C70CD32198C946B2AB24EE1 /* Pods-kolappen-retail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kolappen-retail.release.xcconfig"; path = "Target Support Files/Pods-kolappen-retail/Pods-kolappen-retail.release.xcconfig"; sourceTree = "<group>"; };
+		74103A0025D2C7A6007BD9D4 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		91132C0D1EF182AA5822379B /* Pods-kolappen-retailTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kolappen-retailTests.debug.xcconfig"; path = "Target Support Files/Pods-kolappen-retailTests/Pods-kolappen-retailTests.debug.xcconfig"; sourceTree = "<group>"; };
 		911F6E9A53E5E9B35331CB11 /* Pods_kolappen_retailTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kolappen_retailTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974F78889DFE1945F7E44AB5 /* Pods-kolappen-retailTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kolappen-retailTests.release.xcconfig"; path = "Target Support Files/Pods-kolappen-retailTests/Pods-kolappen-retailTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				EDAAFD6F25C046B100275A4B /* AppDelegate.swift */,
 				EDB4B9E025C98D6E00888873 /* GoogleService-Info.plist */,
 				EDAAFD7125C046B100275A4B /* SceneDelegate.swift */,
+				74103A0025D2C7A6007BD9D4 /* Contact.swift */,
 				ED592F7D25CC2293005E2F86 /* Views */,
 				EDAAFD7525C046B400275A4B /* Assets.xcassets */,
 				EDAAFD7A25C046B400275A4B /* LaunchScreen.storyboard */,
@@ -434,6 +437,7 @@
 			files = (
 				ED592F8425CC2724005E2F86 /* SupportView.swift in Sources */,
 				EDAAFD7025C046B100275A4B /* AppDelegate.swift in Sources */,
+				74103A0125D2C7A6007BD9D4 /* Contact.swift in Sources */,
 				EDAAFD7225C046B100275A4B /* SceneDelegate.swift in Sources */,
 				ED5C652B25D1429300BA9385 /* QueueView.swift in Sources */,
 				EDAAFD7425C046B100275A4B /* ContentView.swift in Sources */,
