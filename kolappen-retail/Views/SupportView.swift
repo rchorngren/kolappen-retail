@@ -19,25 +19,29 @@ struct SupportView: View {
     
     var body: some View {
         ZStack {
-                VStack {
-                    Text("Kölappen")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(Color("Text"))
-                    Text("Support")
-                        .font(.title2)
-                        .foregroundColor(Color("Text"))
-                        Spacer()
-                    Text("Kontakta oss:")
-                        .font(.title3)
-                        .padding()
-                    Text("Telefon: \(contactPhone)")
-                        .foregroundColor(Color("Text"))
-                    Text("E-post: \(contactEmail)")
-                        .foregroundColor(Color("Text"))
+            Color("Background")
+            VStack {
+                Text("Kölappen")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color("Text"))
+                    .padding(.top, 100)
+                Text("Support")
+                    .font(.title2)
+                    .foregroundColor(Color("Text"))
                     Spacer()
-                }
-                
+                Text("Kontakta oss:")
+                    .font(.title3)
+                    .foregroundColor(Color("Text"))
+                    .padding()
+                Text("Telefon: \(contactPhone)")
+                    .foregroundColor(Color("Text"))
+                Text("E-post: \(contactEmail)")
+                    .foregroundColor(Color("Text"))
+                Spacer()
             }
+                
+        }
+        .ignoresSafeArea()
         .onAppear() {
             getContactInfo()
         }
