@@ -29,9 +29,12 @@ struct SettingsView: View {
         .onAppear() {
             print("settingsView")
         }
+        .navigationBarItems(leading: NavigationLink(
+            destination: QueueView()) {
+                Text("Tillbaka")
+            })
+        .navigationBarBackButtonHidden(true)
     }
-    
-    
     
 }
 
