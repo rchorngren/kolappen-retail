@@ -13,6 +13,7 @@
 		ED592F8425CC2724005E2F86 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED592F8225CC2724005E2F86 /* SupportView.swift */; };
 		ED5C652B25D1429300BA9385 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C652A25D1429300BA9385 /* QueueView.swift */; };
 		ED5C657A25D29C3500BA9385 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C657925D29C3500BA9385 /* Shop.swift */; };
+		ED5C659125D3DF0D00BA9385 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C659025D3DF0D00BA9385 /* SettingsView.swift */; };
 		EDAAFD7025C046B100275A4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD6F25C046B100275A4B /* AppDelegate.swift */; };
 		EDAAFD7225C046B100275A4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD7125C046B100275A4B /* SceneDelegate.swift */; };
 		EDAAFD7425C046B100275A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAFD7325C046B100275A4B /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		ED592F8225CC2724005E2F86 /* SupportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		ED5C652A25D1429300BA9385 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
 		ED5C657925D29C3500BA9385 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		ED5C659025D3DF0D00BA9385 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EDAAFD6C25C046B100275A4B /* kolappen-retail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kolappen-retail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAAFD6F25C046B100275A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDAAFD7125C046B100275A4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				ED592F8225CC2724005E2F86 /* SupportView.swift */,
+				ED5C659025D3DF0D00BA9385 /* SettingsView.swift */,
 				ED5C652A25D1429300BA9385 /* QueueView.swift */,
 				EDAAFD7325C046B100275A4B /* ContentView.swift */,
 			);
@@ -439,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED592F8425CC2724005E2F86 /* SupportView.swift in Sources */,
+				ED5C659125D3DF0D00BA9385 /* SettingsView.swift in Sources */,
 				EDAAFD7025C046B100275A4B /* AppDelegate.swift in Sources */,
 				74103A0125D2C7A6007BD9D4 /* Contact.swift in Sources */,
 				EDAAFD7225C046B100275A4B /* SceneDelegate.swift in Sources */,
