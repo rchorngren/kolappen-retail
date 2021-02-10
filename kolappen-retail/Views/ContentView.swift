@@ -62,13 +62,10 @@ struct ContentView: View {
                 }
             }
             .ignoresSafeArea()
-//            .onAppear() {
-//                db.collection("test").addDocument(data: ["name" : "Robert"])
-//            }
         }
-        
-        
     }
+    
+    
     private func buttonPressed() {
         print("username: \(usernameInput)")
         print("password: \(passwordInput)")
@@ -77,7 +74,7 @@ struct ContentView: View {
     private func loginUser() {
         Auth.auth().signIn(withEmail: usernameInput, password: passwordInput) { authResult, error in
             if (error != nil) {
-                print("there was a problem signing in: \(error)")
+                print("there was a problem signing in: \(String(describing: error))")
             } else {
                 print("login successful!")
                 loginSuccess = true
