@@ -62,16 +62,9 @@ struct SupportView: View {
                         print("Document does not exist")
                     }
                 case .failure(let error):
-                    // A `City` value could not be initialized from the DocumentSnapshot.
                     print("Error decoding city: \(error)")
                 }
-            
-//                if let document = document, document.exists {
-//                    let dataDescription = document.data()?.description
-//                    print("Document data: \(dataDescription)")
-//                } else {
-//                    print("Document does not exist")
-//                }
+
         }
     }
     
