@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 struct SettingsView: View {
 
     let db = Firestore.firestore()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
@@ -22,6 +23,7 @@ struct SettingsView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
                     .padding(.top, 100)
+                
             }
                 
         }
@@ -29,11 +31,7 @@ struct SettingsView: View {
         .onAppear() {
             print("settingsView")
         }
-        .navigationBarItems(leading: NavigationLink(
-            destination: QueueView()) {
-                Text("Tillbaka")
-            })
-        .navigationBarBackButtonHidden(true)
+
     }
     
 }
