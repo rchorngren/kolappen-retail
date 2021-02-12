@@ -11,19 +11,49 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct SettingsView: View {
+    
+    @State private var toggleSwitch = false
+    @State private var openingMonday : String = ""
+    @State private var closingMonday : String = ""
 
     let db = Firestore.firestore()
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
             Color("Background")
             VStack {
-                Text("SettingsView")
+                Text("Inställningar")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
-                    .padding(.top, 100)
+                    .padding()
+                Toggle("Öppet", isOn: $toggleSwitch)
+                    .foregroundColor(Color("Text"))
+                    .font(.title3)
+                    .padding(120)
+                    .toggleStyle(SwitchToggleStyle(tint: .green))
                 
+                if toggleSwitch {
+                    Text("Logged in!")
+                }
+                
+                Text("Öppettider")
+                    .foregroundColor(Color("Text"))
+                    .font(.title2)
+                    .padding(.bottom, 20)
+                    .foregroundColor(Color("Text"))
+                    .padding(.bottom)
+                HStack {
+                    TextField("Enter time", text: $openingMonday)
+            
+                }
+                Button(action: {
+                    savedHours()
+                }) {
+                    Text("Spara")
+                        .font(.title2)
+                        .foregroundColor(Color("Text"))
+                        .padding(.horizontal)
+                }
             }
                 
         }
@@ -31,8 +61,13 @@ struct SettingsView: View {
         .onAppear() {
             print("settingsView")
         }
-
     }
+    
+    private func savedHours() {
+        print("Monday ", openingMonday)
+    }
+    
+    
     
 }
 
@@ -40,7 +75,7 @@ struct SettingsView: View {
 
 //struct SupportView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        SupportView()
+//        SettingsView()
 //            .environment(\.colorScheme, .dark)
 //    }
 //}
