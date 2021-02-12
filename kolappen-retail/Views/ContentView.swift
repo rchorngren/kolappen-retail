@@ -49,6 +49,14 @@ struct ContentView: View {
                         }
                     }
                     
+                    NavigationLink(
+                        destination: SettingsView()) {
+                            Text("Inställningar")
+                                .font(.system(size: 14))
+                                .foregroundColor(Color("Link"))
+                                .padding(.horizontal)
+                        }
+                    
                     Spacer()
                     
                     NavigationLink(
