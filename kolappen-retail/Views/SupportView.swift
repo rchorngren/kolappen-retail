@@ -8,7 +8,6 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct SupportView: View {
     
@@ -62,7 +61,7 @@ struct SupportView: View {
                         print("Document does not exist")
                     }
                 case .failure(let error):
-                    print("Error decoding city: \(error)")
+                    print("Error decoding document: \(error)")
                 }
 
         }

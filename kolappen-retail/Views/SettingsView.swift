@@ -8,14 +8,21 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestore
-import FirebaseFirestoreSwift
+import FirebaseAuth
 
 struct SettingsView: View {
     
-    @State private var toggleSwitch = false
+    @State private var shopOpen : Bool = false
     @State private var openingMonday : String = ""
     @State private var closingMonday : String = ""
-
+    
+    @State var uid : String = ""
+    @State var shopName : String = ""
+    @State var currentQueueNumber : Int = 0
+    @State var highestQueueNumber : Int = 0
+    @State var queueLength : Int = 0
+    @State var documentId : String = ""
+    
     let db = Firestore.firestore()
     
     var body: some View {
@@ -26,15 +33,14 @@ struct SettingsView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
                     .padding()
-                Toggle("Öppet", isOn: $toggleSwitch)
+                Toggle("Öppet", isOn: $shopOpen)
+                    .onChange(of: shopOpen) { value in
+                        shopOpenToggle()
+                    }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
                     .padding(120)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
-                
-                if toggleSwitch {
-                    Text("Logged in!")
-                }
                 
                 Text("Öppettider")
                     .foregroundColor(Color("Text"))
@@ -44,7 +50,8 @@ struct SettingsView: View {
                     .padding(.bottom)
                 HStack {
                     TextField("Enter time", text: $openingMonday)
-            
+                        .padding(50)
+                    
                 }
                 Button(action: {
                     savedHours()
@@ -55,16 +62,56 @@ struct SettingsView: View {
                         .padding(.horizontal)
                 }
             }
-                
+            
         }
         .ignoresSafeArea()
         .onAppear() {
-            print("settingsView")
+            loadDataFromFirebase()
+        }
+    }
+    
+    private func shopOpenToggle() {
+        db.collection("users").document(documentId).updateData(["shopOpen" : shopOpen])
+    }
+    
+    private func loadDataFromFirebase() {
+        if let user = Auth.auth().currentUser {
+            uid = user.uid
+            let email = user.email
+            print("loggedin user: \(uid) \(email!)")
+            
+            db.collection("users").whereField("uid", isEqualTo: uid).addSnapshotListener() { (snapshot, error) in
+                if let error = error {
+                    print("there was an error regarding snapshot: \(error)")
+                } else {
+                    for document in snapshot!.documents {
+                        
+                        let result = Result {
+                            try document.data(as: Shop.self)
+                        }
+                        
+                        switch result {
+                        case .success(let shop):
+                            if let shop = shop {
+                                shopName = shop.shopName
+                                shopOpen = shop.shopOpen
+                                documentId = document.documentID
+                                
+                            } else {
+                                print("Document does not exist")
+                            }
+                        case.failure(let error):
+                            print("Error decoding item: \(error)")
+                        }
+                        
+                    }
+                }
+            }
         }
     }
     
     private func savedHours() {
-        print("Monday ", openingMonday)
+        print("Monday \(shopName)")
     }
     
     
