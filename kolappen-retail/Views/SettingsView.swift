@@ -23,12 +23,16 @@ struct SettingsView: View {
     @State var queueLength : Int = 0
     @State var documentId : String = ""
     
+    @State private var timePicker = Date()
+    //@State var timeZone : TimeZone? { get set }
+    
     let db = Firestore.firestore()
     
     var body: some View {
         ZStack {
             Color("Background")
             VStack {
+                Spacer()
                 Text("Inställningar")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
@@ -39,28 +43,44 @@ struct SettingsView: View {
                     }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
-                    .padding(120)
+                    .padding(50)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
                 
                 Text("Öppettider")
                     .foregroundColor(Color("Text"))
                     .font(.title2)
-                    .padding(.bottom, 20)
-                    .foregroundColor(Color("Text"))
-                    .padding(.bottom)
-                HStack {
-                    TextField("Enter time", text: $openingMonday)
-                        .padding(50)
-                    
-                }
+                    .padding(.bottom, 10)
+                //HStack {
+                    Form {
+                        Section(header: Text("Välj tid")) {
+                            DatePicker("Måndag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                            DatePicker("Tisdag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                            DatePicker("Onsdag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                            DatePicker("Torsdag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                            DatePicker("Fredag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                            DatePicker("Lördag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                            DatePicker("Söndag", selection: $timePicker, displayedComponents: .hourAndMinute)
+                                .foregroundColor(Color("Text"))
+                        }
+                    }
+                //}
+                .padding()
+                
                 Button(action: {
-                    savedHours()
+                savedHours()
                 }) {
                     Text("Spara")
                         .font(.title2)
                         .foregroundColor(Color("Text"))
                         .padding(.horizontal)
                 }
+                Spacer()
             }
             
         }
