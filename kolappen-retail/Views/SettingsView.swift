@@ -23,8 +23,20 @@ struct SettingsView: View {
     @State var queueLength : Int = 0
     @State var documentId : String = ""
     
-    @State private var timePicker = Date()
-    //@State var timeZone : TimeZone? { get set }
+    @State private var timePickerMondayOpen = Date()
+    @State private var timePickerMondayClose = Date()
+    @State private var timePickerTuesdayOpen = Date()
+    @State private var timePickerTuesdayClose = Date()
+    @State private var timePickerWednesdayOpen = Date()
+    @State private var timePickerWednesdayClose = Date()
+    @State private var timePickerThursdayOpen = Date()
+    @State private var timePickerThursdayClose = Date()
+    @State private var timePickerFridayOpen = Date()
+    @State private var timePickerFridayClose = Date()
+    @State private var timePickerSaturdayOpen = Date()
+    @State private var timePickerSaturdayClose = Date()
+    @State private var timePickerSundayOpen = Date()
+    @State private var timePickerSundayClose = Date()
     
     let db = Firestore.firestore()
     
@@ -50,27 +62,59 @@ struct SettingsView: View {
                     .foregroundColor(Color("Text"))
                     .font(.title2)
                     .padding(.bottom, 10)
-                //HStack {
                     Form {
                         Section(header: Text("Välj tid")) {
-                            DatePicker("Måndag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
-                            DatePicker("Tisdag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
-                            DatePicker("Onsdag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
-                            DatePicker("Torsdag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
-                            DatePicker("Fredag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
-                            DatePicker("Lördag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
-                            DatePicker("Söndag", selection: $timePicker, displayedComponents: .hourAndMinute)
-                                .foregroundColor(Color("Text"))
+                            HStack {
+                                DatePicker("Måndag", selection: $timePickerMondayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("", selection: $timePickerMondayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
+                            HStack {
+                                DatePicker("Tisdag", selection: $timePickerTuesdayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("", selection: $timePickerTuesdayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
+                            HStack {
+                                DatePicker("Onsdag", selection: $timePickerWednesdayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("", selection: $timePickerWednesdayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
+                            HStack {
+                                DatePicker("Torsdag", selection: $timePickerThursdayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("Torsdag", selection: $timePickerThursdayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
+                            HStack{
+                                DatePicker("Fredag", selection: $timePickerFridayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("Fredag", selection: $timePickerFridayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
+                            HStack {
+                                DatePicker("Lördag", selection: $timePickerSaturdayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("Lördag", selection: $timePickerSaturdayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
+                            HStack {
+                                DatePicker("Söndag", selection: $timePickerSundayOpen, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                DatePicker("Söndag", selection: $timePickerSundayClose, displayedComponents: .hourAndMinute)
+                                    .foregroundColor(Color("Text"))
+                                    .labelsHidden()
+                            }
                         }
                     }
-                //}
-                .padding()
                 
                 Button(action: {
                 savedHours()
@@ -79,8 +123,8 @@ struct SettingsView: View {
                         .font(.title2)
                         .foregroundColor(Color("Text"))
                         .padding(.horizontal)
+                    Spacer()
                 }
-                Spacer()
             }
             
         }
