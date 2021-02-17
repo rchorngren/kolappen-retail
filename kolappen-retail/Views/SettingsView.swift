@@ -46,19 +46,20 @@ struct SettingsView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
                     .padding()
+                
                 Toggle("Öppet", isOn: $shopOpen)
                     .onChange(of: shopOpen) { value in
                         shopOpenToggle()
                     }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
-                    .padding(50)
+                    .padding(80)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
                 
                 Text("Öppettider")
                     .foregroundColor(Color("Text"))
                     .font(.title2)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 5)
                 VStack {
                     HStack {
                         DatePicker("Måndag", selection: $timePickerMondayOpen, displayedComponents: .hourAndMinute)
@@ -130,6 +131,15 @@ struct SettingsView: View {
         }
     }
     
+    private func logoutUser() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Det blev ett feli utloggningen: %@", signOutError)
+        }
+    }
+    
     private func shopOpenToggle() {
         db.collection("users").document(documentId).updateData(["shopOpen" : shopOpen])
     }
@@ -171,7 +181,7 @@ struct SettingsView: View {
     }
     
     private func savedHours() {
-        print("Monday \(shopName)")
+        print("Someday \(shopName)")
     }
     
     
