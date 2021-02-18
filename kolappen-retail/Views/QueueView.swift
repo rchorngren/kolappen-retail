@@ -11,6 +11,8 @@ struct QueueView: View {
     
     var db = Firestore.firestore()
     
+    @Binding var loginSuccess : Bool
+    
     @State var uid : String = ""
     @State var shopName : String = ""
     @State var currentQueueNumber : Int = 0
@@ -54,7 +56,7 @@ struct QueueView: View {
                                     .padding(.horizontal)
                             }
                         NavigationLink(
-                            destination: SettingsView()) {
+                            destination: SettingsView(loginSuccess : $loginSuccess)) {
                                 Text("Inställningar")
                                     .font(.system(size: 14))
                                     .foregroundColor(Color("Link"))

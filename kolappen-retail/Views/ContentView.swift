@@ -34,11 +34,14 @@ struct ContentView: View {
                         SecureField("Lösenord", text: $passwordInput)
                     }
                     .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .onAppear() {
+                        usernameInput = ""
+                        passwordInput = ""
+                    }
                     Spacer()
                     
-                    
                     NavigationLink(
-                        destination: QueueView(), isActive: $loginSuccess) {
+                        destination: QueueView(loginSuccess: $loginSuccess), isActive: $loginSuccess) {
                         Button(action: {
                                 loginUser()
                         }) {
@@ -48,15 +51,6 @@ struct ContentView: View {
                                 .padding(.horizontal)
                         }
                     }
-                    
-                    NavigationLink(
-                        destination: SettingsView()) {
-                            Text("Inställningar")
-                                .font(.system(size: 14))
-                                .foregroundColor(Color("Link"))
-                                .padding(.horizontal)
-                        }
-                    
                     Spacer()
                     
                     NavigationLink(
@@ -66,11 +60,12 @@ struct ContentView: View {
                                 .foregroundColor(Color("Link"))
                                 .padding(.horizontal)
                         }
-                    .padding(.bottom, 50)
+                        .padding(.bottom, 50)
                 }
             }
             .ignoresSafeArea()
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     

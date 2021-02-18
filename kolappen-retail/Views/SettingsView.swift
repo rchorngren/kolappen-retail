@@ -12,6 +12,8 @@ import FirebaseAuth
 
 struct SettingsView: View {
     
+    @Binding var loginSuccess : Bool
+    
     @State var uid : String = ""
     @State var shopName : String = ""
     @State var currentQueueNumber : Int = 0
@@ -46,6 +48,11 @@ struct SettingsView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
                     .padding()
+                
+                Button("Logga ut") {
+                    loginSuccess = false
+                }
+                .foregroundColor(Color("Text"))
                 
                 Toggle("Öppet", isOn: $shopOpen)
                     .onChange(of: shopOpen) { value in
@@ -136,7 +143,7 @@ struct SettingsView: View {
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-            print ("Det blev ett feli utloggningen: %@", signOutError)
+            print ("Det blev ett fel i utloggningen: %@", signOutError)
         }
     }
     
