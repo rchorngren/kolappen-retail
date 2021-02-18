@@ -60,7 +60,10 @@ struct SettingsView: View {
                     }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
-                    .padding(80)
+                    .padding(.top, 50)
+                    .padding(.leading, 80)
+                    .padding(.trailing, 80)
+                    .padding(.bottom, 50)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
                 
                 Text("Öppettider")
@@ -126,6 +129,7 @@ struct SettingsView: View {
                                 .font(.title2)
                                 .foregroundColor(Color("Text"))
                         }
+                        .padding(.bottom, 50)
                     }
                 }
                 .padding(50)
