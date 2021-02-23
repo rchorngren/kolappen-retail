@@ -39,9 +39,6 @@ struct SettingsView: View {
     @State private var timePickerSundayOpen = Date()
     @State private var timePickerSundayClose = Date()
     
-    @State private var mondayOpenString = ""
-    @State private var tuesdayOpenString = ""
-    
     let db = Firestore.firestore()
     
     var body: some View {
@@ -144,14 +141,7 @@ struct SettingsView: View {
         .ignoresSafeArea()
         .onAppear() {
             loadDataFromFirebase()
-            dateToString()
-            openingHours = [mondayOpenString, tuesdayOpenString]
         }
-    }
-    
-    private func dateToString() {
-        mondayOpenString = "\(timePickerMondayOpen)"
-        tuesdayOpenString = "\(timePickerTuesdayOpen)"
     }
     
     private func logoutUser() {
@@ -170,8 +160,7 @@ struct SettingsView: View {
     private func loadDataFromFirebase() {
         if let user = Auth.auth().currentUser {
             uid = user.uid
-            let email = user.email
-            print("loggedin user: \(uid) \(email!)")
+            _ = user.email
             
             db.collection("users").whereField("uid", isEqualTo: uid).addSnapshotListener() { (snapshot, error) in
                 if let error = error {
@@ -186,18 +175,32 @@ struct SettingsView: View {
                         switch result {
                         case .success(let shop):
                             if let shop = shop {
-                                var openingHours = shop.hoursOpen
-                                print("openingHours: \(openingHours[0])")
+
+                                let openingHours = shop.hoursOpen
+
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
+                                
+                                let mondayOpen = dateFormatter.date(from: openingHours[0])
+                                let tuesdayOpen = dateFormatter.date(from: openingHours[1])
+                                let wednesayOpen = dateFormatter.date(from: openingHours[2])
+                                let thursdayOpen = dateFormatter.date(from: openingHours[3])
+                                let fridayOpen = dateFormatter.date(from: openingHours[4])
+                                let saturdayOpen = dateFormatter.date(from: openingHours[5])
+                                let sundayOpen = dateFormatter.date(from: openingHours[6])
+                                
                                 shopName = shop.shopName
                                 shopOpen = shop.shopOpen
                                 documentId = document.documentID
                                 
-//                                if openingHours != nil {
-//                                    let dateFormatter = DateFormatter()
-//                                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
-//                                    let date = dateFormatter.date(from: openingHours[0])
-//                                    print("date: \(date)")
-//                                }
+                                //openinghours, attaching values from fireBase to states connected to each timepicker
+                                timePickerMondayOpen = mondayOpen!
+                                timePickerTuesdayOpen = tuesdayOpen!
+                                timePickerWednesdayOpen = wednesayOpen!
+                                timePickerThursdayOpen = thursdayOpen!
+                                timePickerFridayOpen = fridayOpen!
+                                timePickerSaturdayOpen = saturdayOpen!
+                                timePickerSundayOpen = sundayOpen!
                                 
                             } else {
                                 print("Document does not exist")
@@ -213,7 +216,17 @@ struct SettingsView: View {
     }
     
     private func savedHours() {
-//        db.collection("users").document(documentId).updateData(["hoursOpen" : openingHours])
+        let mondayOpenString = "\(timePickerMondayOpen)"
+        let tuesdayOpenString = "\(timePickerTuesdayOpen)"
+        let wednesdayOpenString = "\(timePickerWednesdayOpen)"
+        let thursdayOpenString = "\(timePickerThursdayOpen)"
+        let fridayOpenString = "\(timePickerFridayOpen)"
+        let saturdayOpenString = "\(timePickerSaturdayOpen)"
+        let sundayOpenString = "\(timePickerSundayOpen)"
+        
+        openingHours = [mondayOpenString, tuesdayOpenString, wednesdayOpenString, thursdayOpenString, fridayOpenString, saturdayOpenString, sundayOpenString]
+        
+        db.collection("users").document(documentId).updateData(["hoursOpen" : openingHours])
     }
     
     
