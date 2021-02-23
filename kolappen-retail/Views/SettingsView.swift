@@ -22,6 +22,8 @@ struct SettingsView: View {
     @State var documentId : String = ""
     @State private var shopOpen : Bool = false
     
+    @State private var openingHours = [String]()
+    
     @State private var timePickerMondayOpen = Date()
     @State private var timePickerMondayClose = Date()
     @State private var timePickerTuesdayOpen = Date()
@@ -36,6 +38,9 @@ struct SettingsView: View {
     @State private var timePickerSaturdayClose = Date()
     @State private var timePickerSundayOpen = Date()
     @State private var timePickerSundayClose = Date()
+    
+    @State private var mondayOpenString = ""
+    @State private var tuesdayOpenString = ""
     
     let db = Firestore.firestore()
     
@@ -139,7 +144,14 @@ struct SettingsView: View {
         .ignoresSafeArea()
         .onAppear() {
             loadDataFromFirebase()
+            dateToString()
+            openingHours = [mondayOpenString, tuesdayOpenString]
         }
+    }
+    
+    private func dateToString() {
+        mondayOpenString = "\(timePickerMondayOpen)"
+        tuesdayOpenString = "\(timePickerTuesdayOpen)"
     }
     
     private func logoutUser() {
@@ -174,9 +186,18 @@ struct SettingsView: View {
                         switch result {
                         case .success(let shop):
                             if let shop = shop {
+                                var openingHours = shop.hoursOpen
+                                print("openingHours: \(openingHours[0])")
                                 shopName = shop.shopName
                                 shopOpen = shop.shopOpen
                                 documentId = document.documentID
+                                
+//                                if openingHours != nil {
+//                                    let dateFormatter = DateFormatter()
+//                                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+//                                    let date = dateFormatter.date(from: openingHours[0])
+//                                    print("date: \(date)")
+//                                }
                                 
                             } else {
                                 print("Document does not exist")
@@ -192,7 +213,7 @@ struct SettingsView: View {
     }
     
     private func savedHours() {
-        print("Someday \(shopName)")
+//        db.collection("users").document(documentId).updateData(["hoursOpen" : openingHours])
     }
     
     
