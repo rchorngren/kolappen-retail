@@ -44,17 +44,17 @@ struct SettingsView: View {
     var body: some View {
         ZStack {
             Color("Background")
+            //Spacer()
             VStack {
-                Spacer()
                 Text("Inställningar")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(Color("Text"))
-                    .padding()
                 
                 Button("Logga ut") {
                     loginSuccess = false
                 }
-                .foregroundColor(Color("Text"))
+                .foregroundColor(Color("Link"))
+                //.padding(.top)
                 
                 Toggle("Öppet", isOn: $shopOpen)
                     .onChange(of: shopOpen) { value in
@@ -62,16 +62,16 @@ struct SettingsView: View {
                     }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
-                    .padding(.top, 50)
+                    //.padding(.top)
                     .padding(.leading, 80)
                     .padding(.trailing, 80)
-                    .padding(.bottom, 50)
+                    //.padding(.bottom)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
                 
                 Text("Öppettider")
                     .foregroundColor(Color("Text"))
                     .font(.title2)
-                    .padding(.bottom, 5)
+                    //.padding(.bottom)
                 VStack {
                     HStack {
                         DatePicker("Måndag", selection: $timePickerMondayOpen, displayedComponents: .hourAndMinute)
@@ -122,19 +122,21 @@ struct SettingsView: View {
                             .foregroundColor(Color("Text"))
                             .labelsHidden()
                     }
-                    .padding(.bottom, 50)
+                    //Spacer()
+                    
                     HStack {
                         Button(action: {
                             savedHours()
                         }) {
                             Text("Spara")
                                 .font(.title2)
-                                .foregroundColor(Color("Text"))
+                                .foregroundColor(Color("Link"))
                         }
-                        .padding(.bottom, 50)
                     }
+                    //Spacer()
                 }
-                .padding(50)
+                .padding(.leading, 50)
+                .padding(.trailing, 50)
             }
             
         }
@@ -177,30 +179,31 @@ struct SettingsView: View {
                             if let shop = shop {
 
                                 let openingHours = shop.hoursOpen
+                                let closingHours = shop.hoursClosed
 
                                 let dateFormatter = DateFormatter()
                                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
                                 
-                                let mondayOpen = dateFormatter.date(from: openingHours[0])
-                                let tuesdayOpen = dateFormatter.date(from: openingHours[1])
-                                let wednesayOpen = dateFormatter.date(from: openingHours[2])
-                                let thursdayOpen = dateFormatter.date(from: openingHours[3])
-                                let fridayOpen = dateFormatter.date(from: openingHours[4])
-                                let saturdayOpen = dateFormatter.date(from: openingHours[5])
-                                let sundayOpen = dateFormatter.date(from: openingHours[6])
+                                timePickerMondayOpen = dateFormatter.date(from: openingHours[0])!
+                                timePickerTuesdayOpen = dateFormatter.date(from: openingHours[1])!
+                                timePickerWednesdayOpen = dateFormatter.date(from: openingHours[2])!
+                                timePickerThursdayOpen = dateFormatter.date(from: openingHours[3])!
+                                timePickerFridayOpen = dateFormatter.date(from: openingHours[4])!
+                                timePickerSaturdayOpen = dateFormatter.date(from: openingHours[5])!
+                                timePickerSundayOpen = dateFormatter.date(from: openingHours[6])!
+                                
+                                timePickerMondayClose = dateFormatter.date(from: closingHours[0])!
+                                timePickerTuesdayClose = dateFormatter.date(from: closingHours[1])!
+                                timePickerWednesdayClose = dateFormatter.date(from: closingHours[2])!
+                                timePickerThursdayClose = dateFormatter.date(from: closingHours[3])!
+                                timePickerFridayClose = dateFormatter.date(from: closingHours[4])!
+                                timePickerSaturdayClose = dateFormatter.date(from: closingHours[5])!
+                                timePickerSundayClose = dateFormatter.date(from: closingHours[6])!
+                                
                                 
                                 shopName = shop.shopName
                                 shopOpen = shop.shopOpen
                                 documentId = document.documentID
-                                
-                                //openinghours, attaching values from fireBase to states connected to each timepicker
-                                timePickerMondayOpen = mondayOpen!
-                                timePickerTuesdayOpen = tuesdayOpen!
-                                timePickerWednesdayOpen = wednesayOpen!
-                                timePickerThursdayOpen = thursdayOpen!
-                                timePickerFridayOpen = fridayOpen!
-                                timePickerSaturdayOpen = saturdayOpen!
-                                timePickerSundayOpen = sundayOpen!
                                 
                             } else {
                                 print("Document does not exist")
@@ -216,17 +219,12 @@ struct SettingsView: View {
     }
     
     private func savedHours() {
-        let mondayOpenString = "\(timePickerMondayOpen)"
-        let tuesdayOpenString = "\(timePickerTuesdayOpen)"
-        let wednesdayOpenString = "\(timePickerWednesdayOpen)"
-        let thursdayOpenString = "\(timePickerThursdayOpen)"
-        let fridayOpenString = "\(timePickerFridayOpen)"
-        let saturdayOpenString = "\(timePickerSaturdayOpen)"
-        let sundayOpenString = "\(timePickerSundayOpen)"
         
-        openingHours = [mondayOpenString, tuesdayOpenString, wednesdayOpenString, thursdayOpenString, fridayOpenString, saturdayOpenString, sundayOpenString]
+        let openingHours = ["\(timePickerMondayOpen)", "\(timePickerTuesdayOpen)", "\(timePickerWednesdayOpen)", "\(timePickerThursdayOpen)", "\(timePickerFridayOpen)", "\(timePickerSaturdayOpen)", "\(timePickerSundayOpen)"]
+        let closingHours = ["\(timePickerMondayClose)", "\(timePickerTuesdayClose)", "\(timePickerWednesdayClose)", "\(timePickerThursdayClose)", "\(timePickerFridayClose)", "\(timePickerSaturdayClose)", "\(timePickerSundayClose)"]
         
         db.collection("users").document(documentId).updateData(["hoursOpen" : openingHours])
+        db.collection("users").document(documentId).updateData(["hoursClosed" : closingHours])
     }
     
     
