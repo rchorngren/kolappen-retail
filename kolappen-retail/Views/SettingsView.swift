@@ -44,7 +44,6 @@ struct SettingsView: View {
     var body: some View {
         ZStack {
             Color("Background")
-            //Spacer()
             VStack {
                 Text("Inställningar")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -54,7 +53,7 @@ struct SettingsView: View {
                     loginSuccess = false
                 }
                 .foregroundColor(Color("Link"))
-                //.padding(.top)
+                .padding(.top)
                 
                 Toggle("Öppet", isOn: $shopOpen)
                     .onChange(of: shopOpen) { value in
@@ -62,16 +61,16 @@ struct SettingsView: View {
                     }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
-                    //.padding(.top)
+                    .padding(.top)
                     .padding(.leading, 80)
                     .padding(.trailing, 80)
-                    //.padding(.bottom)
+                    .padding(.bottom)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
                 
                 Text("Öppettider")
                     .foregroundColor(Color("Text"))
                     .font(.title2)
-                    //.padding(.bottom)
+                    .padding(.bottom)
                 VStack {
                     HStack {
                         DatePicker("Måndag", selection: $timePickerMondayOpen, displayedComponents: .hourAndMinute)
@@ -122,7 +121,7 @@ struct SettingsView: View {
                             .foregroundColor(Color("Text"))
                             .labelsHidden()
                     }
-                    //Spacer()
+                    .padding(.bottom)
                     
                     HStack {
                         Button(action: {
@@ -131,9 +130,9 @@ struct SettingsView: View {
                             Text("Spara")
                                 .font(.title2)
                                 .foregroundColor(Color("Link"))
+                                .padding(.top)
                         }
                     }
-                    //Spacer()
                 }
                 .padding(.leading, 50)
                 .padding(.trailing, 50)
