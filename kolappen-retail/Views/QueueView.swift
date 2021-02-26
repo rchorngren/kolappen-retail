@@ -83,9 +83,11 @@ struct QueueView: View {
     }
     
     private func nextCustomer() {
-        let newQueueNumber = currentQueueNumber + 1
-        do {
-            db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber])
+        if queueLength > 0 {
+            let newQueueNumber = currentQueueNumber + 1
+            do {
+                db.collection("users").document(documentId).updateData(["currentQueueNumber" : newQueueNumber])
+            }
         }
     }
     
