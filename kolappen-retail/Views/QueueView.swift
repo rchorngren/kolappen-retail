@@ -20,6 +20,8 @@ struct QueueView: View {
     @State var queueLength : Int = 0
     @State var documentId : String = ""
     
+    @State private var buttonDisabled : Bool = false
+    
     var body: some View {
 
             ZStack {
@@ -46,6 +48,7 @@ struct QueueView: View {
                         .padding(.horizontal)
                     })
                     .padding(.bottom, 50)
+                    .disabled(queueLength == 0)
                     
                     HStack {
                         NavigationLink(
