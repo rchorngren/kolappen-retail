@@ -25,10 +25,24 @@ struct SupportView: View {
                     .font(.title3)
                     .foregroundColor(Color("Text"))
                     .padding()
-                Text("Telefon: \(contactPhone)")
-                    .foregroundColor(Color("Text"))
-                Text("E-post: \(contactEmail)")
-                    .foregroundColor(Color("Text"))
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("Telefon:")
+                            .foregroundColor(Color("Text"))
+                            .padding(.bottom)
+                        Text("E-post:")
+                            .foregroundColor(Color("Text"))
+                    }
+                    VStack (alignment: .leading) {
+                        Text("\(contactPhone)")
+                            .foregroundColor(Color("Text"))
+                            .padding(.bottom)
+                        Text("\(contactEmail)")
+                            .foregroundColor(Color("Text"))
+                    }
+                    Spacer()
+                }
                 Spacer()
             }
             .navigationBarTitle("Support")
