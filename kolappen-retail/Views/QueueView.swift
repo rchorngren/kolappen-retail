@@ -43,8 +43,9 @@ struct QueueView: View {
                         nextCustomer()
                     }, label: {
                         Text("Nästa kund")
-                        .font(.title2)
-                        .foregroundColor(Color("Text"))
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(Color(.systemGreen))
                         .padding(.horizontal)
                     })
                     .padding(.bottom, 50)

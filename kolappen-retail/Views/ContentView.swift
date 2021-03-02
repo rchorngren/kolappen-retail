@@ -26,6 +26,7 @@ struct ContentView: View {
                     Text("Kölappen")
                         .foregroundColor(Color("Text"))
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
                         .padding()
                     Spacer()
                     VStack {
@@ -47,7 +48,7 @@ struct ContentView: View {
                         }) {
                             Text("Logga in")
                                 .font(.title2)
-                                .foregroundColor(Color("Text"))
+                                .foregroundColor(Color("Link"))
                                 .padding(.horizontal)
                         }
                     }
