@@ -45,104 +45,104 @@ struct SettingsView: View {
         ZStack {
             Color("Background")
             VStack {
-                Text("Inställningar")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(Color("Text"))
-                
-                Button("Logga ut") {
-                    loginSuccess = false
-                }
-                .foregroundColor(Color("Link"))
-                .padding(.top)
-                
+                Spacer()
                 Toggle("Öppet", isOn: $shopOpen)
                     .onChange(of: shopOpen) { value in
                         shopOpenToggle()
                     }
                     .foregroundColor(Color("Text"))
                     .font(.title3)
-                    .padding(.top)
+                    .padding(.top, 100)
                     .padding(.leading, 80)
                     .padding(.trailing, 80)
                     .padding(.bottom)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
-                
+//                Spacer()
                 Text("Öppettider")
                     .foregroundColor(Color("Text"))
                     .font(.title2)
+                    .padding(.top)
                     .padding(.bottom)
-                VStack {
-                    HStack {
-                        DatePicker("Måndag", selection: $timePickerMondayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Måndag", selection: $timePickerMondayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    HStack {
-                        DatePicker("Tisdag", selection: $timePickerTuesdayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Tisdag", selection: $timePickerTuesdayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    HStack {
-                        DatePicker("Onsdag", selection: $timePickerWednesdayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Onsdag", selection: $timePickerWednesdayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    HStack {
-                        DatePicker("Torsdag", selection: $timePickerThursdayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Torsdag", selection: $timePickerThursdayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    HStack{
-                        DatePicker("Fredag", selection: $timePickerFridayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Fredag", selection: $timePickerFridayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    HStack {
-                        DatePicker("Lördag", selection: $timePickerSaturdayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Lördag", selection: $timePickerSaturdayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    HStack {
-                        DatePicker("Söndag", selection: $timePickerSundayOpen, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                        DatePicker("Söndag", selection: $timePickerSundayClose, displayedComponents: .hourAndMinute)
-                            .foregroundColor(Color("Text"))
-                            .labelsHidden()
-                    }
-                    .padding(.bottom)
-                    
-                    HStack {
-                        Button(action: {
-                            savedHours()
-                        }) {
-                            Text("Spara")
-                                .font(.title2)
-                                .foregroundColor(Color("Link"))
-                                .padding(.top)
-                        }
-                    }
-                }
-                .padding(.leading, 50)
-                .padding(.trailing, 50)
+                openingHoursView
+                    .padding(.leading, 50)
+                    .padding(.trailing, 50)
+                Spacer()
+                Button(action: {
+                    savedHours()
+                }, label: {
+                    Text("Spara")
+                        .font(.title2)
+                        .foregroundColor(Color("Link"))
+                        .padding(.top)
+                })
+                Spacer()
             }
+            .navigationBarTitle("Inställningar")
+            .navigationBarItems(trailing:
+                Button("Logga ut") {
+                loginSuccess = false
+            })
             
         }
         .ignoresSafeArea()
         .onAppear() {
             loadDataFromFirebase()
         }
+    }
+    
+    var openingHoursView: some View {
+        VStack {
+            HStack {
+                DatePicker("Måndag", selection: $timePickerMondayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Måndag", selection: $timePickerMondayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+            HStack {
+                DatePicker("Tisdag", selection: $timePickerTuesdayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Tisdag", selection: $timePickerTuesdayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+            HStack {
+                DatePicker("Onsdag", selection: $timePickerWednesdayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Onsdag", selection: $timePickerWednesdayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+            HStack {
+                DatePicker("Torsdag", selection: $timePickerThursdayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Torsdag", selection: $timePickerThursdayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+            HStack{
+                DatePicker("Fredag", selection: $timePickerFridayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Fredag", selection: $timePickerFridayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+            HStack {
+                DatePicker("Lördag", selection: $timePickerSaturdayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Lördag", selection: $timePickerSaturdayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+            HStack {
+                DatePicker("Söndag", selection: $timePickerSundayOpen, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                DatePicker("Söndag", selection: $timePickerSundayClose, displayedComponents: .hourAndMinute)
+                    .foregroundColor(Color("Text"))
+                    .labelsHidden()
+            }
+        }
+        
     }
     
     private func logoutUser() {
