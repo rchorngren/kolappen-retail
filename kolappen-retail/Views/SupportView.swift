@@ -20,14 +20,7 @@ struct SupportView: View {
         ZStack {
             Color("Background")
             VStack {
-                Text("Kölappen")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(Color("Text"))
-                    .padding(.top, 100)
-                Text("Support")
-                    .font(.title2)
-                    .foregroundColor(Color("Text"))
-                    Spacer()
+                Spacer()
                 Text("Kontakta oss:")
                     .font(.title3)
                     .foregroundColor(Color("Text"))
@@ -38,7 +31,7 @@ struct SupportView: View {
                     .foregroundColor(Color("Text"))
                 Spacer()
             }
-                
+            .navigationBarTitle("Support")
         }
         .ignoresSafeArea()
         .onAppear() {
